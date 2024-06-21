@@ -7,6 +7,7 @@ export default function Home() {
         <h1 className='text-center'>Leyu - Hackathon Rimac</h1>
         <br />
         <h2 className='text-center'>IN PROGRESS ...</h2>
+        <h3 className='text-center'>DEV Branch</h3>
       </div>
     </main>
   )
