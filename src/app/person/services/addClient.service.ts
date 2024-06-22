@@ -17,7 +17,7 @@ export const addClient = async () => {
 
     axios({
         method: 'post',
-        url: 'https://5txl3p0ghf.execute-api.us-west-2.amazonaws.com/addClient/',
+        url: 'https://cpw9eaw6zg.execute-api.us-west-2.amazonaws.com/dev/addClient',
         headers: {
             'Content-Type': 'application/json',
         },
