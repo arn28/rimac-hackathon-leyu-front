@@ -1,4 +1,4 @@
-interface IArrowRightOutlineProps {
+interface IArrowDownOutlineProps {
   strokeWidth?: number
   size?: number
   strokeColor?: string
@@ -7,7 +7,7 @@ export const ArrowDownOutline = ({
   size,
   strokeWidth,
   strokeColor,
-}: IArrowRightOutlineProps) => {
+}: IArrowDownOutlineProps) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
