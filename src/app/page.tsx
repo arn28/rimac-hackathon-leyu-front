@@ -67,8 +67,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='p-8 flex flex-col md:flex-row items-center justify-center gap-8 '>
-        <div className='flex flex-col items-center gap-4 rounded-[24px] bg-[#EDF0FF] p-8 basis-1 md:basis-1/2'>
+      <div className='p-8 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 '>
+        <div className='flex flex-col items-center gap-4 rounded-[24px] bg-[#EDF0FF] p-8 basis-1 md:basis-[40%] drop-shadow-xl'>
           <Image
             alt='metals'
             width={120}
@@ -83,15 +83,31 @@ export default function Home() {
               es el bienestar de hoy
             </span>
           </h3>
-          <p className='text-center text-[20px]'>
-            La mejor manera de asegurarte la eliges tú, bueno la elige tu
-            esencia
+          <p className='text-center text-[20px] leading-snug'>
+            La mejor manera de asegurarte{' '}
+            <span className='font-semibold'>la eliges tú</span>, bueno la elige
+            tu esencia
           </p>
+          <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
+            ¡Quiero saber!
+          </Button>
         </div>
         <div
-          className={`flex flex-col items-center gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 basis-1 md:basis-1/2`}
+          className={`flex flex-col items-center justify-center gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 basis-1 md:basis-[40%] text-white drop-shadow-xl`}
         >
-          <RimacIcon size={20} />
+          <h3 className='text-[28px] max-w-fit md:max-w-[340px] font-semibold  text-center'>
+            VISITA LA WEB RIMAC
+          </h3>
+          <p className='text-[20px] leading-snug max-w-fit md:max-w-[68%]'>
+            y revisa todos los productos que tenemos para ti.
+          </p>
+          <Button
+            radius='lg'
+            fullWidth
+            className='bg-white text-black font-semibold'
+          >
+            ir a la web
+          </Button>
         </div>
       </div>
     </main>
