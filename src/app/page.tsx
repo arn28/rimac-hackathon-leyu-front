@@ -45,7 +45,7 @@ export default function Home() {
           <ArrowDownOutline strokeColor='#959BBE' size={42} />
         </div>
       </div>
-      <div className='p-8 min flex flex-col items-center gap-8 '>
+      <div className='p-8 flex flex-col items-center gap-8 '>
         <h2 className='text-[32px] font-semibold'>
           ¿Cómo funciona la lectura?
         </h2>
@@ -67,8 +67,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='p-8 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 '>
-        <div className='flex flex-col items-center gap-4 rounded-[24px] bg-[#EDF0FF] p-8 basis-1 md:basis-[40%] drop-shadow-xl'>
+      <div className='p-8 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 max-w-[100%] md:max-w-[80%] m-auto'>
+        <div className='flex flex-col items-center gap-4 rounded-[24px] bg-[#EDF0FF] p-8 w-[100%] h-[100%] drop-shadow-xl'>
           <Image
             alt='metals'
             width={120}
@@ -93,7 +93,7 @@ export default function Home() {
           </Button>
         </div>
         <div
-          className={`flex flex-col items-center justify-center gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 basis-1 md:basis-[40%] text-white drop-shadow-xl`}
+          className={`flex flex-col items-center justify-center gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl`}
         >
           <h3 className='text-[28px] max-w-fit md:max-w-[340px] font-semibold  text-center'>
             VISITA LA WEB RIMAC
@@ -108,6 +108,14 @@ export default function Home() {
           >
             ir a la web
           </Button>
+        </div>
+      </div>
+      <div className='bg-[#E7EAFD] p-8 flex flex-row md:flex-col items-center gap-8 '>
+        <div className=' flex items-center justify-between '>
+          <RimacIcon />
+          <div>
+            <p>icons</p>
+          </div>
         </div>
       </div>
     </main>
