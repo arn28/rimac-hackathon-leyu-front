@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Providers } from './providers'
 import './globals.css'
 import { ThemeSwitcher } from './components/ThemeSwitcher'
+import { NextUIProviderTheme } from './NextUIProviderTheme'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,14 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className='light'>
-      <body
-        className={`${inter.className} text-[#111] dark:text-[#fff] dark:bg-[#111]  bg-[#fff]`}
-      >
-        <Providers>
-          {/* <ThemeSwitcher /> */}
-          {children}
-        </Providers>
+    <html lang='en light'>
+      <body className={`${inter.className} text-[#111] dark:text-[#F7F8FB]`}>
+        {/* <NextUIProviderTheme> */}
+        {/* <ThemeSwitcher /> */}
+        {children}
+        {/* </NextUIProviderTheme> */}
       </body>
     </html>
   )
