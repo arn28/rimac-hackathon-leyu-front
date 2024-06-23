@@ -7,6 +7,7 @@ import { RimacIcon } from '../components/icons/RimacIcon'
 import Link from 'next/link'
 import ArrowButtonScroll from '../components/ArrowButtonScroll'
 import Footer from '@/features/Footer'
+import SimpleCard from '@/components/SimpleCard'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         className={`p-8 min-h-svh flex flex-col items-center justify-evenly gap-8 bg-[url('../assets/img/bg_light.svg')] bg-cover`}
       >
         <RimacIcon strokeColor='#fff' size={40} />
-        <div className='flex flex-col items-center gap-4 rounded-[24px] bg-white p-8 min-w-[340px]'>
+        <SimpleCard>
           <div className='w-full'>
             <Image
               alt='mental_health'
@@ -50,10 +51,12 @@ export default function Home() {
               beneficios
             </div>
           </div>
-          <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
-            ¡Quiero saber!
-          </Button>
-        </div>
+          <Link className='w-full' href={'/bienestar-quiz'}>
+            <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
+              ¡Quiero saber!
+            </Button>
+          </Link>
+        </SimpleCard>
         <ArrowButtonScroll scrollToId='#lectureInit' />
       </section>
       <section
@@ -102,9 +105,11 @@ export default function Home() {
             <span className='font-semibold'>la eliges tú</span>, bueno la elige
             tu esencia
           </p>
-          <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
-            ¡Quiero saber!
-          </Button>
+          <Link className='w-full' href={'/bienestar-quiz'}>
+            <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
+              ¡Quiero saber!
+            </Button>
+          </Link>
         </div>
         <div
           className={`flex flex-col items-center justify-between gap-4 rounded-[24px] bg-[url('../assets/img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl md:text-center`}
