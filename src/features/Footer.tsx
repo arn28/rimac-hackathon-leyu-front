@@ -1,4 +1,3 @@
-import React from 'react'
 import { YoutubeIcon } from '@/components/icons/YoutubeIcon'
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
 import { FacebookIcon } from '@/components/icons/FacebookIcon'
