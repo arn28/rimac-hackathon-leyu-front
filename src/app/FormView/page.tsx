@@ -1,10 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Image } from '@nextui-org/image'
-import { getClientData } from './services/getClientData'
-import { getStates } from './services/getStates'
-import { getCities } from './services/getCities'
+import { getDniData } from './services/getDniData.service'
 import { Button } from '@nextui-org/button'
 import { addClient } from './services/addClient.service'
 import { isDataComplete } from './utils/isDataComplete'
@@ -15,15 +13,13 @@ export default function FormView() {
         nombres:'asdasd',
         primerApl:'asdasd',
         segundoApl:'asdas',
-        states:[],
-        cities:[],
         countryState:'',
         city:'',
         email:'',
         dni:'12345678',
         telf:''
     })
-    const { nombres, primerApl, segundoApl, cities, states } = state
+    const { nombres, primerApl, segundoApl } = state
 
     let temp: NodeJS.Timeout
     const onInputDni = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,24 +28,12 @@ export default function FormView() {
 
         clearTimeout(temp)
         const onTimmer = async () => {
-            await getClientData(dniNro,( nombres, primerApl, segundoApl )=>{
+            await getDniData(dniNro,( nombres, primerApl, segundoApl )=>{
                 setState({...state, nombres, primerApl, segundoApl})
             })
             
         }
         temp = setTimeout(onTimmer, 1000)
-    }
-
-    const onChangeState = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
-        const selectState = evt.target.value
-        getCities(selectState).then(data=>{
-            setState({...state, cities:data, countryState:selectState})
-        })
-    }
-
-    const onChangeCity = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
-        const selectCity = evt.target.value
-        setState({...state, city:selectCity})
     }
 
     const onChange = (evt: React.ChangeEvent<HTMLInputElement>) =>{
@@ -59,15 +43,9 @@ export default function FormView() {
     }
 
     const onSubmit = () =>{
-        if(!isDataComplete(state)) return
+        if(!isDataComplete(state)) return alert('Por favor complete todos los campos')
         addClient({...state})
     }
-
-    useEffect(()=>{
-        getStates().then(data=>{
-            setState({...state, states:data})
-        })
-    },[])
 
     return (
         <main className=''>
@@ -144,27 +122,6 @@ export default function FormView() {
                             required
                             onChange={onChange}
                         />
-                        <select                            
-                            className="border-2 border-lila rounded-lg p-2 w-full border-input"
-                            onChange={(evt)=>onChangeState(evt)}
-                            disabled={states.length === 0}
-                            
-                        >
-                            <option>Seleccione su ciudad</option>
-                            {states?.map(({state_name:state},index:number)=>(
-                                <option key={index}>{state}</option>
-                            ))}
-                        </select>
-                        <select                            
-                            className="border-2 border-lila rounded-lg p-2 w-full border-input"
-                            onChange={(evt)=>onChangeCity(evt)}
-                            disabled={cities.length === 0}
-                        >
-                            <option>Seleccione su ciudad</option>
-                            {cities?.map(({city_name:city},index:number)=>(
-                                <option key={index}>{city}</option>
-                            ))}
-                        </select>
                     </form>
                     <Button radius='lg' fullWidth onClick={onSubmit}>
                         Siguiente

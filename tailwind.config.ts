@@ -21,6 +21,9 @@ const config: Config = {
       },
       borderColor: {
         'input' : '#CCD1EE'
+      },
+      animation:{
+        'trans0_5': 'transition ease 0.5s'
       }
     },
   },
