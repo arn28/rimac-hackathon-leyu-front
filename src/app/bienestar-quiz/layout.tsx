@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { StepProgressProvider } from '@/store/StepProgress/StepProgressProvider'
 
 export default function DashboardBienestar({
   children,
@@ -9,7 +9,7 @@ export default function DashboardBienestar({
     <main
       className={`p-8 min-h-svh flex flex-col items-center justify-start bg-[url('../assets/img/bg_light.svg')] bg-cover`}
     >
-      {children}
+      <StepProgressProvider>{children}</StepProgressProvider>
     </main>
   )
 }
