@@ -7,19 +7,20 @@ import { getStates } from './services/getStates'
 import { getCities } from './services/getCities'
 import { Button } from '@nextui-org/button'
 import { addClient } from './services/addClient.service'
+import { isDataComplete } from './utils/isDataComplete'
 
 export default function FormView() {
 
     const [state,setState] = useState({
-        nombres:'',
-        primerApl:'',
-        segundoApl:'',
+        nombres:'asdasd',
+        primerApl:'asdasd',
+        segundoApl:'asdas',
         states:[],
         cities:[],
-        state:'',
+        countryState:'',
         city:'',
         email:'',
-        dni:'',
+        dni:'12345678',
         telf:''
     })
     const { nombres, primerApl, segundoApl, cities, states } = state
@@ -39,12 +40,16 @@ export default function FormView() {
         temp = setTimeout(onTimmer, 1000)
     }
 
-    const onChangeCity = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
-        const city = evt.target.value
-        setState({...state, city})
-        getCities(city).then(data=>{
-            setState({...state, cities:data})
+    const onChangeState = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
+        const selectState = evt.target.value
+        getCities(selectState).then(data=>{
+            setState({...state, cities:data, countryState:selectState})
         })
+    }
+
+    const onChangeCity = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
+        const selectCity = evt.target.value
+        setState({...state, city:selectCity})
     }
 
     const onChange = (evt: React.ChangeEvent<HTMLInputElement>) =>{
@@ -54,6 +59,7 @@ export default function FormView() {
     }
 
     const onSubmit = () =>{
+        if(!isDataComplete(state)) return
         addClient({...state})
     }
 
@@ -67,7 +73,7 @@ export default function FormView() {
         <main className=''>
             <div
             className={`p-8 min-h-screen flex flex-col items-center justify-between gap-8 bg-[url('../img/bg_light.svg')] bg-cover`}>
-                <div className="flex flex-col bg-white rounded-xl w-1/3 px-10 gap-8 p-8">
+                <div className="flex flex-col bg-white rounded-xl w-1/3 md:w-full px-10 gap-8 p-8">
                     <Image width={64} height={65} src="/assets/icons/backArrowCircle.svg" alt="backArrowCircle"/>
                     <div className='flex flex-col items-center gap-px'>
                         <p className='font-bold text-3xl'>Por ultimo...</p>
@@ -118,13 +124,16 @@ export default function FormView() {
                         <input 
                             className="border-2 border-lila rounded-lg p-2 w-full border-input"
                             placeholder="Email" 
+                            name='email'
                             type="email" 
+                            required
                             onChange={onChange}
                         />
                         <select                            
                             className="border-2 border-lila rounded-lg p-2 w-full border-input"
-                            onChange={(evt)=>onChangeCity(evt)}
+                            onChange={(evt)=>onChangeState(evt)}
                             disabled={states.length === 0}
+                            
                         >
                             <option>Seleccione su ciudad</option>
                             {states?.map(({state_name:state},index:number)=>(

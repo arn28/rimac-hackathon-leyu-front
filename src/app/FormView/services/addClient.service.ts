@@ -1,19 +1,17 @@
 import axios from 'axios';
 
-interface Client{
+export interface Client{
     email: string
     dni: string
     telf: string
     nombres: string
     primerApl: string
     segundoApl: string
-    state: string
+    countryState: string
     city: string
 }
 
-export const addClient = async ({email, dni, telf, nombres, primerApl, segundoApl, state, city}:Client) => {
-    console.log({email, dni, telf, nombres, primerApl, segundoApl, state, city})
-    // todo: pasar la url a .env
+export const addClient = async ({email, dni, telf, nombres, primerApl, segundoApl, countryState, city}:Client) => {
 
     axios({
         method: 'post',
@@ -28,7 +26,7 @@ export const addClient = async ({email, dni, telf, nombres, primerApl, segundoAp
             "nombres":nombres,
             "primerApl":primerApl,
             "segundoApl":segundoApl,
-            "state":state,
+            "countryState":countryState,
             "city":city
         }
     })
