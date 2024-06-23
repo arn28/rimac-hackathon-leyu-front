@@ -1,12 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { Image } from '@nextui-org/image'
 import { getDniData } from './services/getDniData.service'
 import { Button } from '@nextui-org/button'
-import { addClient } from './services/addClient.service'
+import { Client, addClient } from './services/addClient.service'
 import { isDataComplete } from './utils/isDataComplete'
-import { clientData } from '../bienestar-quiz/page'
+import { clientData } from '@/utils/clientData'
 
 interface Props {
     onNext: () => void
@@ -15,13 +14,13 @@ interface Props {
 export default function FormView({ onNext }:Props) {
 
     const [state,setState] = useState({
-        nombres:'asdasd',
-        primerApl:'asdasd',
-        segundoApl:'asdas',
+        nombres:'',
+        primerApl:'',
+        segundoApl:'',
         countryState:'',
         city:'',
         email:'',
-        dni:'12345678',
+        dni:'',
         telf:''
     })
     const { nombres, primerApl, segundoApl } = state
@@ -34,6 +33,10 @@ export default function FormView({ onNext }:Props) {
         clearTimeout(temp)
         const onTimmer = async () => {
             await getDniData(dniNro,( nombres, primerApl, segundoApl )=>{
+                clientData.dni = dniNro
+                clientData.nombres = nombres
+                clientData.primerApl = primerApl
+                clientData.segundoApl = segundoApl
                 setState({...state, nombres, primerApl, segundoApl})
             })
             
@@ -44,12 +47,14 @@ export default function FormView({ onNext }:Props) {
     const onChange = (evt: React.ChangeEvent<HTMLInputElement>) =>{
         const value = evt.target.value
         const name = evt.target.name
+        clientData[name as keyof Client] = value
         setState({...state, [name]:value})
     }
 
     const onSubmit = () =>{
-        if(!isDataComplete(state)) return alert('Por favor complete todos los campos')
-        addClient({...state})
+        if(!isDataComplete()) return alert('Por favor complete todos los campos')
+        addClient()
+        onNext()
     }
 
     return (

@@ -2,10 +2,9 @@
 
 import { Button } from '@nextui-org/button'
 import { Image } from '@nextui-org/image'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getStates } from './services/getStates'
 import { getCities } from './services/getCities'
-import { StepProgressContext } from '@/store/StepProgress/StepProgressContext'
 import { clientData } from '../bienestar-quiz/page'
 
 interface Props {
@@ -13,7 +12,6 @@ interface Props {
 }
 
 export default function CurrentLives({ onNext }:Props) {
-
   const [state, setState] = useState({
     states:[],
     cities:[],

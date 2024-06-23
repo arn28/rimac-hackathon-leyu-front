@@ -11,17 +11,7 @@ import NerbyBenef from '../nerbyBenef/NerbyBenef'
 import CurrentLives from '../currentLives/CurrentLives'
 import FormView from '../FormView/FormView'
 import ReadyView from '../readyView/ReadyView'
-
-export let clientData ={
-  email: '',
-  dni: '',
-  telf: '',
-  nombres: '',
-  primerApl: '',
-  segundoApl: '',
-  countryState: '',
-  city: '',
-}
+import ResultsView from '../resultsView/ResultsView'
 
 export default function Bienestar() {
   const { stepProgress, setStepProgress } = useContext(StepProgressContext)
@@ -185,10 +175,7 @@ export default function Bienestar() {
 
       case 6:
         return (
-          <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
-          </>
+          <ResultsView/>
         )
         break
 
