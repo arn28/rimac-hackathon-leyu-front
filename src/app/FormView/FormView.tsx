@@ -6,12 +6,10 @@ import { Button } from '@nextui-org/button'
 import { Client, addClient } from './services/addClient.service'
 import { isDataComplete } from './utils/isDataComplete'
 import { clientData } from '@/utils/clientData'
+import Link from 'next/link'
 
-interface Props {
-    onNext: () => void
-}
 
-export default function FormView({ onNext }:Props) {
+export default function FormView() {
 
     const [state,setState] = useState({
         nombres:'',
@@ -54,12 +52,11 @@ export default function FormView({ onNext }:Props) {
     const onSubmit = () =>{
         if(!isDataComplete()) return alert('Por favor complete todos los campos')
         addClient()
-        onNext()
     }
 
     return (
         <main className=''>
-            <div className="flex flex-col bg-white rounded-xl w-full md:w-1/3 px-10 gap-8">
+            <div className="flex flex-col bg-white rounded-xl w-full px-10 gap-8">
                 <div className='flex flex-col items-center gap-px text-center'>
                     <p className='font-bold text-3xl '>Por ultimo...</p>
                     <p className='font-bold text-3xl '>Valida tus datos</p>
@@ -130,9 +127,11 @@ export default function FormView({ onNext }:Props) {
                         onChange={onChange}
                     />
                 </form>
-                <Button radius='lg' fullWidth onClick={onSubmit}>
-                    Siguiente
-                </Button>
+                <Link href='/resultsView'>
+                    <Button radius='lg' fullWidth onClick={onSubmit}>
+                        Siguiente
+                    </Button>
+                </Link>
             </div>
         </main>
       )

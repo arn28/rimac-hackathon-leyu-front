@@ -17,7 +17,7 @@ export default function Bienestar() {
   const { stepProgress, setStepProgress } = useContext(StepProgressContext)
   const substepsPerStep: { [key: number]: number } = {
     1: 6,
-    2: 7,
+    2: 5,
     3: 2,
   }
 
@@ -169,13 +169,7 @@ export default function Bienestar() {
         break
       case 5:
         return (
-          <FormView onNext={nextStep}/>
-        )
-        break
-
-      case 6:
-        return (
-          <ResultsView/>
+          <FormView/>
         )
         break
 
