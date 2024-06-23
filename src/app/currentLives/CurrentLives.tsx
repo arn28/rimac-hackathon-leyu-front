@@ -5,7 +5,7 @@ import { Image } from '@nextui-org/image'
 import { useEffect, useState } from 'react'
 import { getStates } from './services/getStates'
 import { getCities } from './services/getCities'
-import { clientData } from '../bienestar-quiz/page'
+import { clientData } from '@/utils/clientData'
 
 interface Props {
   onNext: () => void
