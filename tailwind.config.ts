@@ -14,7 +14,8 @@ const config: Config = {
       colors: {
         primary: '#13172C',
         default: { DEFAULT: '#111', foreground: '#fff' },
-        'lila':'#EDF0FF'
+        'lila':'#EDF0FF',
+        'light-green': '#2AFAC0'
       },
       height: {
         '80vh': '80vh',
