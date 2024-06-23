@@ -263,8 +263,45 @@ export default function Bienestar() {
       case 5:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <Image src='/brazo_musculo.webp' alt='Descubre tu escencia' />
+
+            <h2 className='font-semibold text-center'>
+              ¿Cuál es tu motivación?
+            </h2>
+            <div className='flex flex-col w-full gap-1'>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/familia.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Proteger a mi familia
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/woman_star.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Crecimiento personal
+                  </p>
+                </div>
+              </div>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/chanchito.webp' alt='Descubre tu escencia' />
+
+                  <p className='text-[12px] font-semibold'>
+                    Seguridad Financiera
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/casa_estrella.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Proteger mis bienes
+                  </p>
+                </div>
+              </div>
+            </div>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              Siguiente
+            </Button>
           </>
         )
         break
@@ -272,8 +309,67 @@ export default function Bienestar() {
       case 6:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <Image src='/wink_face.webp' alt='Descubre tu escencia' />
+
+            <h3 className='text-center'>
+              Si pudieras elegir una cobertura que te brinde mayor tranquilidad{' '}
+            </h3>
+            <h2 className='font-semibold text-center'>¿Cuál sería?</h2>
+            <div className='flex flex-col w-full gap-1'>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/chanchito.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Plan para proteger tu futuro financiero
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image
+                    src='/persona_corazon.webp'
+                    alt='Descubre tu escencia'
+                  />
+                  <p className='text-[12px] font-semibold'>
+                    Cuidado y bienestar personal
+                  </p>
+                </div>
+              </div>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/carro.webp' alt='Descubre tu escencia' />
+
+                  <p className='text-[12px] font-semibold'>
+                    Protección para tu vehículo
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/perro_corazon.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Seguridad y bienestar de tu mascota
+                  </p>
+                </div>
+              </div>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image
+                    src='/beneficios_tag.webp'
+                    alt='Descubre tu escencia'
+                  />
+
+                  <p className='text-[12px] font-semibold'>
+                    Beneficios y ventajas inmediatas
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/satelite.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px] font-semibold'>
+                    Atención fuera del país
+                  </p>
+                </div>
+              </div>
+            </div>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              Siguiente
+            </Button>
           </>
         )
         break
