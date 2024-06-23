@@ -13,7 +13,14 @@ const config: Config = {
       colors: {
         primary: '#f7052d',
         default: { DEFAULT: '#111', foreground: '#fff' },
+        'lila':'#EDF0FF'
       },
+      height: {
+        '80vh': '80vh',
+      },
+      borderColor: {
+        'input' : '#CCD1EE'
+      }
     },
   },
   darkMode: 'class',
