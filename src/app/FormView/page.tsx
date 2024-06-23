@@ -66,7 +66,7 @@ export default function FormView() {
     return (
         <main className=''>
             <div
-            className={`p-8 min-h-screen flex flex-col items-center justify-between gap-8 bg-[url('../img/bg_light.svg')] bg-cover`}>
+            className={`p-8 min-h-screen flex flex-col items-center justify-between gap-8 bg-[url('../assets/img/bg_light.svg')] bg-cover`}>
                 <div className="flex flex-col bg-white rounded-xl w-1/3 px-10 gap-8 p-8">
                     <Image width={64} height={65} src="/assets/icons/backArrowCircle.svg" alt="backArrowCircle"/>
                     <div className='flex flex-col items-center gap-px'>
