@@ -1,27 +1,20 @@
 // import { useRef } from 'react'
 import { Button } from '@nextui-org/button'
 import { Image } from '@nextui-org/image'
-import { ArrowRightOutline } from './components/Icon/ArrowRightOutline'
-import { ArrowDownOutline } from './components/Icon/ArrowDownOutline'
-import { PlussCircleSolid } from './components/Icon/PlussCircleSolid'
-import { RimacIcon } from './components/Icon/RimacIcon'
-import { FacebookIcon } from './components/Icon/FacebookIcon'
-import { LinkedInIcon } from './components/Icon/LinkedInIcon'
-import { YoutubeIcon } from './components/Icon/YoutubeIcon'
+import { ArrowRightOutline } from './components/icons/ArrowRightOutline'
+import { PlussCircleSolid } from './components/icons/PlussCircleSolid'
+import { RimacIcon } from './components/icons/RimacIcon'
+import { FacebookIcon } from './components/icons/FacebookIcon'
+import { LinkedInIcon } from './components/icons/LinkedInIcon'
+import { YoutubeIcon } from './components/icons/YoutubeIcon'
 import Link from 'next/link'
 import ArrowButtonScroll from './components/ArrowButtonScroll'
 
 export default function Home() {
-  // const lectureSection = useRef<HTMLDivElement>(null)
-
-  // const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
-  //   sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  // }
-
   return (
     <main className='scroll-smooth'>
       <section
-        className={`p-8 min-h-svh flex flex-col items-center justify-evenly gap-8 bg-[url('../img/bg_light.svg')] bg-cover`}
+        className={`p-8 min-h-svh flex flex-col items-center justify-evenly gap-8 bg-[url('../assets/img/bg_light.svg')] bg-cover`}
       >
         <RimacIcon strokeColor='#fff' size={40} />
         <div className='flex flex-col items-center gap-4 rounded-[24px] bg-white p-8 min-w-[340px]'>
@@ -116,7 +109,7 @@ export default function Home() {
           </Button>
         </div>
         <div
-          className={`flex flex-col items-center justify-between gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl md:text-center`}
+          className={`flex flex-col items-center justify-between gap-4 rounded-[24px] bg-[url('../assets/img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl md:text-center`}
         >
           <div className='w-full h-full flex flex-col justify-center'>
             <h3 className='text-[28px] max-w-fit md:max-w-[340px] font-semibold mx-auto'>

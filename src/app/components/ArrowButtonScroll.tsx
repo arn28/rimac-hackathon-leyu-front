@@ -1,5 +1,5 @@
 'use client'
-import { ArrowDownOutline } from './Icon/ArrowDownOutline'
+import { ArrowDownOutline } from './icons/ArrowDownOutline'
 interface IArrowButtonScrollProp {
   scrollToId: string
 }
