@@ -17,6 +17,17 @@ export const StepProgressProvider: React.FC<IStepProgressProvider> = ({
     currentSubstep: 0,
   })
 
+  const [clientData, setClientData] = useState({
+    email: '',
+    dni: '',
+    telf: '',
+    nombres: '',
+    primerApl: '',
+    segundoApl: '',
+    countryState: '',
+    city: '',
+  })
+
   const setTotalSteps = (totalSteps: number) => {
     const updatedStepProgress = { ...stepProgress, totalSteps }
     setStepProgress(updatedStepProgress)
@@ -40,7 +51,9 @@ export const StepProgressProvider: React.FC<IStepProgressProvider> = ({
         setCurrentStep,
         setTotalSubsteps,
         setCurrentSubstep,
-        setStepProgress
+        setStepProgress,
+        clientData,
+        setClientData,
       }}
     >
       {children}
