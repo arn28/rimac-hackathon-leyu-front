@@ -1,3 +1,5 @@
+
+import { clientData } from '@/utils/clientData';
 import axios from 'axios';
 
 export interface Client{
@@ -11,7 +13,8 @@ export interface Client{
     city: string
 }
 
-export const addClient = async ({email, dni, telf, nombres, primerApl, segundoApl, countryState, city}:Client) => {
+export const addClient = async () => {
+    const {email, dni, telf, nombres, primerApl, segundoApl, countryState, city} = clientData
 
     axios({
         method: 'post',
