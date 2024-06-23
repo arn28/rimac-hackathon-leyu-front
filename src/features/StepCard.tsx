@@ -13,7 +13,7 @@ export default function StepCard({
   onClick = () => {},
 }: IStepCardProps) {
   return (
-    <SimpleCard className='relative'>
+    <SimpleCard className='relative  w-full md:w-[380px]'>
       <Button
         isIconOnly
         radius='full'

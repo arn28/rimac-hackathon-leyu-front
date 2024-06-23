@@ -3,6 +3,8 @@ import Steps from '@/components/Steps'
 import StepCard from '@/features/StepCard'
 import { StepProgressContext } from '@/store/StepProgress/StepProgressContext'
 import { StepProgress } from '@/types/StepProgress'
+import { Button } from '@nextui-org/button'
+import { Image } from '@nextui-org/image'
 import { useContext, useEffect } from 'react'
 
 export default function Bienestar() {
@@ -68,8 +70,20 @@ export default function Bienestar() {
       case 1:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <Image src='/bola_misteriosa.webp' alt='Descubre tu escencia' />
+            <h2 className='font-semibold'>Sabemos que eres único</h2>
+            <p>
+              Por ello creamos el
+              <span className='font-semibold italic'>
+                {' '}
+                analizador de esencia{' '}
+              </span>
+              para que sepas cuál es la tuya y darte la mejor manera de asegurar
+              tu bienestar.
+            </p>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              ¡Quiero saber!
+            </Button>
           </>
         )
         break
