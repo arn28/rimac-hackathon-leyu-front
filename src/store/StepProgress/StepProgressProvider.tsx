@@ -40,6 +40,7 @@ export const StepProgressProvider: React.FC<IStepProgressProvider> = ({
         setCurrentStep,
         setTotalSubsteps,
         setCurrentSubstep,
+        setStepProgress
       }}
     >
       {children}

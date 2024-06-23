@@ -7,6 +7,7 @@ interface IStepProgressContext {
   setCurrentStep: (currentStep: number) => void
   setTotalSubsteps: (totalSubsteps: number) => void
   setCurrentSubstep: (currentSubstep: number) => void
+  setStepProgress: React.Dispatch<React.SetStateAction<StepProgress>>
 }
 
 export const StepProgressContext = createContext<IStepProgressContext>({
@@ -20,4 +21,5 @@ export const StepProgressContext = createContext<IStepProgressContext>({
   setCurrentStep: () => {},
   setTotalSubsteps: () => {},
   setCurrentSubstep: () => {},
+  setStepProgress: () => {},
 })
