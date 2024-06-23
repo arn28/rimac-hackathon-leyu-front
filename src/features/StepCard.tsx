@@ -4,16 +4,18 @@ import { ArrowLefttOutline } from '@/components/icons/ArrowLefttOutline'
 import { Button } from '@nextui-org/button'
 import React from 'react'
 interface IStepCardProps {
+  customClass?: string
   children: React.ReactNode
   onClick?: () => void
 }
 
 export default function StepCard({
+  customClass = '',
   children,
   onClick = () => {},
 }: IStepCardProps) {
   return (
-    <SimpleCard className='relative  w-full md:w-[380px]'>
+    <SimpleCard className={`relative ${customClass} w-full md:w-[380px]`}>
       <Button
         isIconOnly
         radius='full'

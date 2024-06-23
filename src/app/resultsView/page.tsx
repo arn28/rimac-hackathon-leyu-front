@@ -1,6 +1,5 @@
 import { Button } from '@nextui-org/button'
 import { Image } from '@nextui-org/image'
-
 import Footer from '@/features/Footer'
 
 export default function ResultsView() {
@@ -91,9 +90,7 @@ export default function ResultsView() {
           <p>Unete a <strong>Estar Bien y descubre maneras de aprovechar tus recursos.</strong></p>
         </div>
         <div className='flex flex-col w-full md:w-[30%] justify-center items-center'>
-          {/* <div className='w-full rounded-lg rounded-b-none'> */}
-            <Image className='w-full' src="/personas_ejercitandose_estar_bien.webp" alt="ejercicios" radius='none' />
-          {/* </div> */}
+          <Image className='w-full' src="/personas_ejercitandose_estar_bien.webp" alt="ejercicios" radius='none' />
           <div className='flex flex-col rounded-lg rounded-t-none bg-light-green text-center p-3'>
             <p className='font-bold text-2xl'>Estar bien</p>
             <p>El <strong>NetWork digital de bienestar</strong> más grande de la región. 

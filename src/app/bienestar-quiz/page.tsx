@@ -8,13 +8,29 @@ import { Checkbox } from '@nextui-org/checkbox'
 import { Image } from '@nextui-org/image'
 import { Input } from '@nextui-org/input'
 import { useContext, useEffect, useState } from 'react'
+import HealthFirst from '../healthFirst/HealthFirst'
+import NerbyBenef from '../nerbyBenef/NerbyBenef'
+import CurrentLives from '../currentLives/CurrentLives'
+import FormView from '../FormView/FormView'
+import ReadyView from '../readyView/ReadyView'
+
+export let clientData ={
+  email: '',
+  dni: '',
+  telf: '',
+  nombres: '',
+  primerApl: '',
+  segundoApl: '',
+  countryState: '',
+  city: '',
+}
 
 export default function Bienestar() {
   const [clientName, setClientName] = useState('')
   const { stepProgress, setStepProgress } = useContext(StepProgressContext)
   const substepsPerStep: { [key: number]: number } = {
     1: 6,
-    2: 2,
+    2: 7,
     3: 2,
   }
 
@@ -201,6 +217,51 @@ export default function Bienestar() {
     }
   }
 
+  const SubtepRenderStep2 = (substep: number) => {
+    switch (substep) {
+      case 1:
+        return (
+          <HealthFirst onNext={nextStep}/>
+        )
+        break
+
+      case 2:
+        return (
+          <NerbyBenef onNext={nextStep}/>
+        )
+        break
+      case 3:
+        return (
+          <CurrentLives onNext={nextStep}/>
+        )
+        break
+
+      case 4:
+        return (
+          <ReadyView onNext={nextStep}/>
+        )
+        break
+      case 5:
+        return (
+          <FormView onNext={nextStep}/>
+        )
+        break
+
+      case 6:
+        return (
+          <>
+            <h1>step 1</h1>
+            <h2>{substep}</h2>
+          </>
+        )
+        break
+
+      default:
+        return <></>
+        break
+    }
+  }
+
   const StepRender = ({ step, substep }: { step: number; substep: number }) => {
     switch (step) {
       case 1:
@@ -208,7 +269,7 @@ export default function Bienestar() {
         break
 
       default:
-        return <></>
+        return SubtepRenderStep2(substep)
         break
     }
   }
