@@ -4,10 +4,13 @@ import StepCard from '@/features/StepCard'
 import { StepProgressContext } from '@/store/StepProgress/StepProgressContext'
 import { StepProgress } from '@/types/StepProgress'
 import { Button } from '@nextui-org/button'
+import { Checkbox } from '@nextui-org/checkbox'
 import { Image } from '@nextui-org/image'
-import { useContext, useEffect } from 'react'
+import { Input } from '@nextui-org/input'
+import { useContext, useEffect, useState } from 'react'
 
 export default function Bienestar() {
+  const [clientName, setClientName] = useState('')
   const { stepProgress, setStepProgress } = useContext(StepProgressContext)
   const substepsPerStep: { [key: number]: number } = {
     1: 6,
@@ -20,6 +23,12 @@ export default function Bienestar() {
     currentStep: 1,
     totalSubsteps: substepsPerStep[1],
     currentSubstep: 1,
+  }
+
+  const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const value = evt.target.value
+    // const name = evt.target.name
+    setClientName(value)
   }
 
   const nextStep = () => {
@@ -63,6 +72,7 @@ export default function Bienestar() {
 
   useEffect(() => {
     setStepProgress(stepProgressInitialState)
+    console.log('render')
   }, [])
 
   const SubtepRenderStep1 = (substep: number) => {
@@ -91,8 +101,62 @@ export default function Bienestar() {
       case 2:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <Image src='/ojo_turco.webp' alt='Descubre tu escencia' />
+            <h2 className='font-semibold text-center'>
+              Todos los nombres tienen un significado
+              <span className='bg-gradient-to-r from-[#F7052D] to-[#D2007E] inline-block text-transparent bg-clip-text'>
+                {' '}
+                ¿Cuál es el tuyo?{' '}
+              </span>
+            </h2>
+            <div className='flex flex-col w-full gap-4'>
+              <input
+                className='border-2 rounded-lg p-2 w-full border-input'
+                type='text'
+                name='nombres'
+                placeholder='Nombres'
+                defaultValue={clientName}
+                onInput={onChange}
+              />
+              <div className='flex flex-row gap-4'>
+                <Input
+                  className='basis-1/2'
+                  variant='faded'
+                  color='primary'
+                  type='text'
+                  label='Apellido Materno'
+                />
+                <Input
+                  className='basis-1/2'
+                  variant='faded'
+                  color='primary'
+                  type='text'
+                  label='Apellido Materno'
+                />
+              </div>
+
+              <Input
+                variant='faded'
+                color='primary'
+                type='email'
+                label='Correo'
+              />
+            </div>
+            <div className='w-full flex flex-col '>
+              <Checkbox>
+                <span className='text-[12px]'>
+                  Acepto los términos y condiciones
+                </span>
+              </Checkbox>
+              <Checkbox className=''>
+                <span className='text-[12px]'>
+                  Acepto el uso de tratamientos de datos
+                </span>
+              </Checkbox>
+            </div>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              Siguiente
+            </Button>
           </>
         )
         break
