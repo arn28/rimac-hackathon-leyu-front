@@ -44,10 +44,21 @@ export default function Home() {
               bienestar
             </span>
           </p>
-          <p className='text-center max-w-[340px] leading-none'>
+          <p className='text-justify sm:text-center max-w-[340px] leading-none'>
             Descubre qué esencia tienes y cuál es la mejor manera de estar
             asegurado.
           </p>
+          <div className='flex w-full justify-between text-[12px] text-white'>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              promociones
+            </div>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              personalizado
+            </div>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              beneficios
+            </div>
+          </div>
           <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
             ¡Quiero saber!
           </Button>
