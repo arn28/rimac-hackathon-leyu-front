@@ -73,29 +73,44 @@ export default function FormView() {
         <main className=''>
             <div
             className={`p-8 min-h-screen flex flex-col items-center justify-between gap-8 bg-[url('../assets/img/bg_light.svg')] bg-cover`}>
-                <div className="flex flex-col bg-white rounded-xl w-1/3 px-10 gap-8 p-8">
+                <div className="flex flex-col bg-white rounded-xl w-full md:w-1/3 px-10 gap-8 p-8">
                     <Image width={64} height={65} src="/assets/icons/backArrowCircle.svg" alt="backArrowCircle"/>
-                    <div className='flex flex-col items-center gap-px'>
-                        <p className='font-bold text-3xl'>Por ultimo...</p>
-                        <p className='font-bold text-3xl'>Valida tus datos</p>
-                        <p className='text-center'>No creemos que seas un robot, solo queremos tener la certeza.</p>
+                    <div className='flex flex-col items-center gap-px text-center'>
+                        <p className='font-bold text-3xl '>Por ultimo...</p>
+                        <p className='font-bold text-3xl '>Valida tus datos</p>
+                        <p>No creemos que seas un robot, solo queremos tener la certeza.</p>
                     </div>
                     <form className='flex flex-col gap-y-3'>
-                        <input 
-                            className="border-2 border-lila rounded-lg p-2 w-3/5 border-input"
-                            type="number" 
-                            name='telf'
-                            placeholder="Ingrese su nro de tlf." 
-                            onChange={onChange}
-                        />
-                        <input 
-                            className="border-2 border-lila rounded-lg p-2 w-3/5 border-input"
-                            type="text"
-                            name='dni' 
-                            placeholder="Ingrese su DNI" 
-                            maxLength={8}
-                            onInput={onInputDni}
-                        />
+                        <div className='flex md:gap-x-3'>
+                            <input
+                                className="text-center md:text-left border-2 border-lila rounded-lg p-2 w-1/5 border-input"
+                                disabled
+                                defaultValue={'+51'}
+                            />
+                            <input 
+                                className="border-2 border-lila rounded-lg p-2 w-4/5 border-input"
+                                type="number" 
+                                name='telf'
+                                placeholder="Ingrese su nro de tlf." 
+                                onChange={onChange}
+                            />
+                        </div>
+                        <div className='flex md:gap-x-3'>
+                        <select                            
+                                className="text-center md:text-left border-2 border-lila rounded-lg p-2 w-1/5 border-input"
+                                disabled
+                        >
+                            <option>DNI</option>
+                        </select>
+                            <input 
+                                className="border-2 border-lila rounded-lg p-2 w-4/5 border-input"
+                                type="text"
+                                name='dni' 
+                                placeholder="Ingrese su DNI" 
+                                maxLength={8}
+                                onInput={onInputDni}
+                            />
+                        </div>
                         <input 
                             className="border-2 border-lila rounded-lg p-2 w-full border-input"
                             type="text" 
