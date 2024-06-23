@@ -1,8 +1,8 @@
 import React from 'react'
-import { YoutubeIcon } from '../components/icons/YoutubeIcon'
-import { LinkedInIcon } from '../components/icons/LinkedInIcon'
-import { FacebookIcon } from '../components/icons/FacebookIcon'
-import { RimacIcon } from '../components/icons/RimacIcon'
+import { YoutubeIcon } from '@/components/icons/YoutubeIcon'
+import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
+import { FacebookIcon } from '@/components/icons/FacebookIcon'
+import { RimacIcon } from '@/components/icons/RimacIcon'
 
 export default function Footer() {
   return (
