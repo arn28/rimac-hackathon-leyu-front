@@ -7,25 +7,25 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/features/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/components/(button|image|ripple|spinner).js',
+    './node_modules/@nextui-org/theme/dist/components/(button|checkbox|image|ripple|spinner|input).js',
   ],
   theme: {
     extend: {
       colors: {
         primary: '#13172C',
         default: { DEFAULT: '#111', foreground: '#fff' },
-        'lila':'#EDF0FF',
-        'light-green': '#2AFAC0'
+        lila: '#EDF0FF',
+        'light-green': '#2AFAC0',
       },
       height: {
         '80vh': '80vh',
       },
       borderColor: {
-        'input' : '#CCD1EE'
+        input: '#CCD1EE',
       },
-      animation:{
-        'trans0_5': 'transition ease 0.5s'
-      }
+      animation: {
+        trans0_5: 'transition ease 0.5s',
+      },
     },
   },
   darkMode: 'class',
