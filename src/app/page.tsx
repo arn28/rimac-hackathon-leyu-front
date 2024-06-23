@@ -126,7 +126,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <footer className='bg-[#D9D9D9] p-16 flex flex-row md:flex-col items-center gap-8 '>
+      <footer className='bg-[#D9D9D9] p-16 flex flex-col items-center gap-8 '>
         <div className=' flex items-center justify-between w-full '>
           <RimacIcon />
           <div className='flex gap-2'>
