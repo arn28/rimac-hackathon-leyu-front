@@ -14,6 +14,8 @@ import CurrentLives from '../currentLives/CurrentLives'
 import FormView from '../FormView/FormView'
 import ReadyView from '../readyView/ReadyView'
 import ResultsView from '../resultsView/ResultsView'
+import { clientData } from '@/utils/clientData'
+import SimpleCard from '@/components/SimpleCard'
 
 export default function Bienestar() {
   const [clientName, setClientName] = useState('')
@@ -34,7 +36,8 @@ export default function Bienestar() {
   const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const value = evt.target.value
     // const name = evt.target.name
-    setClientName(value)
+    clientData.nombres = value
+    // setClientName(value)
   }
 
   const nextStep = () => {
@@ -116,13 +119,12 @@ export default function Bienestar() {
               </span>
             </h2>
             <div className='flex flex-col w-full gap-4'>
-              <input
-                className='border-2 rounded-lg p-2 w-full border-input'
+              <Input
+                variant='faded'
+                color='primary'
                 type='text'
-                name='nombres'
-                placeholder='Nombres'
-                defaultValue={clientName}
-                onInput={onChange}
+                label='Nombre'
+                onChange={onChange}
               />
               <div className='flex flex-row gap-4'>
                 <Input
@@ -169,8 +171,50 @@ export default function Bienestar() {
       case 3:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <h2 className='font-semibold text-center'>{clientData.nombres},</h2>
+            <Image src='/cara_misteriosa.webp' alt='Descubre tu escencia' />
+
+            <h2 className='font-semibold text-center'>Consideras ser...</h2>
+            <div className='flex flex-col w-full gap-1'>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/woman_star.webp' alt='Descubre tu escencia' />
+                  <h3 className='text-[16px] font-semibold'> Joven Flexible</h3>
+                  <p className='text-[12px]'>
+                    Solo o con pareja. Independiente o buscando crecer
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/money_man.webp' alt='Descubre tu escencia' />
+                  <h3 className='text-[16px] font-semibold'>Adulto en casa</h3>
+                  <p className='text-[12px]'>
+                    Solo o con pareja. Independiente o buscando crecer
+                  </p>
+                </div>
+              </div>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/familia.webp' alt='Descubre tu escencia' />
+                  <h3 className='text-[16px] font-semibold'>
+                    {' '}
+                    Formando Familia
+                  </h3>
+                  <p className='text-[12px]'>
+                    Solo o con pareja. Independiente o buscando crecer
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/mama_bebe.webp' alt='Descubre tu escencia' />
+                  <h3 className='text-[16px] font-semibold'> Resiliente</h3>
+                  <p className='text-[12px]'>
+                    Solo o con pareja. Independiente o buscando crecer
+                  </p>
+                </div>
+              </div>
+            </div>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              Siguiente
+            </Button>
           </>
         )
         break
@@ -178,8 +222,41 @@ export default function Bienestar() {
       case 4:
         return (
           <>
-            <h1>step 1</h1>
-            <h2>{substep}</h2>
+            <Image src='/Varita_magica.webp' alt='Descubre tu escencia' />
+
+            <h2 className='font-semibold text-center'>
+              ¿Qué intereses tienes?
+            </h2>
+            <div className='flex flex-col w-full gap-1'>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/cine.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px]'>
+                    Explorar nuevas actividades y hobbies
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/familia.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px]'>Hacer planes con los mios</p>
+                </div>
+              </div>
+              <div className='flex w-full gap-1'>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/woman_star.webp' alt='Descubre tu escencia' />
+
+                  <p className='text-[12px]'>
+                    Aprender y crecer profesionalmente
+                  </p>
+                </div>
+                <div className='flex flex-col items-center rounded-[24px] basis-1/2 bg-slate-200 min-w-min text-center gap-0 p-1 justify-center cursor-pointer'>
+                  <Image src='/chanchito.webp' alt='Descubre tu escencia' />
+                  <p className='text-[12px]'>Pasar tiempo con mis mascotas</p>
+                </div>
+              </div>
+            </div>
+            <Button radius='lg' fullWidth onClick={nextStep}>
+              Siguiente
+            </Button>
           </>
         )
         break
@@ -210,37 +287,25 @@ export default function Bienestar() {
   const SubtepRenderStep2 = (substep: number) => {
     switch (substep) {
       case 1:
-        return (
-          <HealthFirst onNext={nextStep}/>
-        )
+        return <HealthFirst onNext={nextStep} />
         break
 
       case 2:
-        return (
-          <NerbyBenef onNext={nextStep}/>
-        )
+        return <NerbyBenef onNext={nextStep} />
         break
       case 3:
-        return (
-          <CurrentLives onNext={nextStep}/>
-        )
+        return <CurrentLives onNext={nextStep} />
         break
 
       case 4:
-        return (
-          <ReadyView onNext={nextStep}/>
-        )
+        return <ReadyView onNext={nextStep} />
         break
       case 5:
-        return (
-          <FormView onNext={nextStep}/>
-        )
+        return <FormView onNext={nextStep} />
         break
 
       case 6:
-        return (
-          <ResultsView/>
-        )
+        return <ResultsView />
         break
 
       default:
@@ -275,7 +340,6 @@ export default function Bienestar() {
           substep={stepProgress.currentSubstep}
         />
       </StepCard>
-      <button onClick={nextStep}>click step</button>
     </section>
   )
 }
