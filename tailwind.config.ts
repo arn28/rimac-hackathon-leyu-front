@@ -5,13 +5,14 @@ const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/features/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/components/(button|image|ripple|spinner).js',
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#f7052d',
+        primary: '#13172C',
         default: { DEFAULT: '#111', foreground: '#fff' },
         'lila':'#EDF0FF'
       },

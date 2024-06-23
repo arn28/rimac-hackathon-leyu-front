@@ -1,27 +1,18 @@
 // import { useRef } from 'react'
 import { Button } from '@nextui-org/button'
 import { Image } from '@nextui-org/image'
-import { ArrowRightOutline } from './components/Icon/ArrowRightOutline'
-import { ArrowDownOutline } from './components/Icon/ArrowDownOutline'
-import { PlussCircleSolid } from './components/Icon/PlussCircleSolid'
-import { RimacIcon } from './components/Icon/RimacIcon'
-import { FacebookIcon } from './components/Icon/FacebookIcon'
-import { LinkedInIcon } from './components/Icon/LinkedInIcon'
-import { YoutubeIcon } from './components/Icon/YoutubeIcon'
+import { ArrowRightOutline } from '../components/icons/ArrowRightOutline'
+import { PlussCircleSolid } from '../components/icons/PlussCircleSolid'
+import { RimacIcon } from '../components/icons/RimacIcon'
 import Link from 'next/link'
-import ArrowButtonScroll from './components/ArrowButtonScroll'
+import ArrowButtonScroll from '../components/ArrowButtonScroll'
+import Footer from '@/features/Footer'
 
 export default function Home() {
-  // const lectureSection = useRef<HTMLDivElement>(null)
-
-  // const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
-  //   sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  // }
-
   return (
     <main className='scroll-smooth'>
       <section
-        className={`p-8 min-h-svh flex flex-col items-center justify-evenly gap-8 bg-[url('../img/bg_light.svg')] bg-cover`}
+        className={`p-8 min-h-svh flex flex-col items-center justify-evenly gap-8 bg-[url('../assets/img/bg_light.svg')] bg-cover`}
       >
         <RimacIcon strokeColor='#fff' size={40} />
         <div className='flex flex-col items-center gap-4 rounded-[24px] bg-white p-8 min-w-[340px]'>
@@ -44,10 +35,21 @@ export default function Home() {
               bienestar
             </span>
           </p>
-          <p className='text-center max-w-[340px] leading-none'>
+          <p className='text-justify sm:text-center max-w-[340px] leading-none'>
             Descubre qué esencia tienes y cuál es la mejor manera de estar
             asegurado.
           </p>
+          <div className='flex w-full justify-between text-[12px] text-white'>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              promociones
+            </div>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              personalizado
+            </div>
+            <div className='bg-[#13172C] px-3 py-2 rounded-full'>
+              beneficios
+            </div>
+          </div>
           <Button radius='lg' fullWidth endContent={<ArrowRightOutline />}>
             ¡Quiero saber!
           </Button>
@@ -105,7 +107,7 @@ export default function Home() {
           </Button>
         </div>
         <div
-          className={`flex flex-col items-center justify-between gap-4 rounded-[24px] bg-[url('../img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl md:text-center`}
+          className={`flex flex-col items-center justify-between gap-4 rounded-[24px] bg-[url('../assets/img/grain-texture-gradient.webp')] bg-cover p-8 w-[100%] h-[100%] text-white drop-shadow-xl md:text-center`}
         >
           <div className='w-full h-full flex flex-col justify-center'>
             <h3 className='text-[28px] max-w-fit md:max-w-[340px] font-semibold mx-auto'>
@@ -126,43 +128,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <footer className='bg-[#D9D9D9] p-16 flex flex-col items-center gap-8 '>
-        <div className=' flex items-center justify-between w-full '>
-          <RimacIcon />
-          <div className='flex gap-2'>
-            <a
-              className='cursor-pointer'
-              href='https://www.facebook.com/segurosrimac/'
-              target='_blank'
-            >
-              <FacebookIcon />
-            </a>
-            <a
-              className='cursor-pointer'
-              href='https://www.linkedin.com/company/rimac-seguros/'
-              target='_blank'
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              className='cursor-pointer'
-              href='https://www.youtube.com/user/SegurosRimac/'
-              target='_blank'
-            >
-              <YoutubeIcon />
-            </a>
-          </div>
-        </div>
-        <p className='text-[#5E6488]'>
-          Todos los derechos reservados. La información contenida en esta página
-          web es solo para fines informativos y no constituye asesoramiento
-          legal, financiero ni de seguros. Al utilizar este sitio, usted acepta
-          nuestros términos y condiciones. Para más detalles, consulte nuestras
-          políticas de privacidad y uso
-          <br />© 2024 RIMAC SEGUROS Y REASEGUROS. Todos los Derechos
-          Reservados.
-        </p>
-      </footer>
+      <Footer />
     </main>
   )
 }

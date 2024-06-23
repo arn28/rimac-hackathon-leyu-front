@@ -1,5 +1,5 @@
 'use client'
-import { ArrowDownOutline } from './Icon/ArrowDownOutline'
+import { ArrowDownOutline } from './icons/ArrowDownOutline'
 interface IArrowButtonScrollProp {
   scrollToId: string
 }
@@ -18,7 +18,11 @@ export default function ArrowButtonScroll({
     })
   }
   return (
-    <a className='cursor-pointer' href={scrollToId} onClick={handleScroll}>
+    <a
+      className='cursor-pointer animate-bounce'
+      href={scrollToId}
+      onClick={handleScroll}
+    >
       <ArrowDownOutline strokeColor='#959BBE' size={42} />
     </a>
   )
